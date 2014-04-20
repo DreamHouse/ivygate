@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://www.zillow.com/mortgage/RateExplorerGraphWidget.htm?region=26 -->
+<html class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="ROBOTS" content="NOINDEX"><title>Zillow Mortgage Rates</title><script src="/assets/rates/base-3.11.0.1-concat.js" type="text/javascript"></script><script>
+    YUI.GlobalConfig = {
+        root: '3.11.0/',
+        base: 'http://www.zillowstatic.com/static/yui/3.11.0/',
+        comboBase: 'http://www.zillowstatic.com/c/yui?',
+        staticDomain: 'http://www.zillowstatic.com/',
+        vstatic: {
+            domain: 'http://www.zillowstatic.com/',
+            combo : 'http://www.zillowstatic.com/c/55cb77d/lib?',
+            base  : 'http://www.zillowstatic.com/vstatic/55cb77d/static/'
+        }
+        
+    };
+</script><script src="/assets/rates/global-concat.js" type="text/javascript"></script>
+        <script charset="utf-8" id="yui_3_11_0_2_1394587221569_2" src="/assets/rates/yui.js" async=""></script><script charset="utf-8" id="yui_3_11_0_2_1394587221569_3" src="/assets/rates/yui1.js" async=""></script><script charset="utf-8" id="yui_3_11_0_2_1394587221569_4" src="/assets/rates/lib.js" async=""></script><script charset="utf-8" id="yui_3_11_0_3_1394587221569_3" src="/assets/rates/getRates.js"></script></head><body><div class="zmm-api-config template hide">&nbsp;<!--{"serverURLs":{"MAX":"https://mortgageapi.zillow.com","MIN":"https://www.zillow.com:443/mortgage/service/min","MCA":"http://mortgagechart.zillow.com"},"userSessionId":"2cf6ec75\-b115\-4a82\-829a\-a6bcd486e426","abs":{"MortgageMobileAppUpsellAndroid":"FullScreenWhite","MortgagePreapprovalFlow":"MULTI_STEP_CREDIT_CONTACT_BEFORE_DOWN_NO_LENDER_SELECTION","MortgageMobileAppUpsellIOS":"FullScreenWhite","MortgageModernRefinanceCalculator":"MODERN","MortgageModernCalculators":"MODERN_UPSELL_ZMM","MortgageDropdownTitle":"TITLE_MORTGAGES","MortgageModernAffordabilityCalculator":"MODERN","MortgageFeaturedContactForm":"ON","Mortgage_HomeAffordabilityFilter":"ENABLED"},"stateAbbreviation":"MA","partnerId":"RD\-CZMBMCZ"}--></div>
+
+        <script type="text/javascript">
+        YUI().use('node', 'zillow-formatters', 'zmm-rate-viewer', function (Y) {
+            var config = {
+                rateChartConfig: {
+                    selector: '#chart',
+                    yuiChartConfig: {
+                        styles: {
+                            series: {
+                                nationalPercentageRate: {
+                                    line: { color: '#3467BB', weight: 2 }
+                                },
+                                localPercentageRate: {
+                                    line: { color: '#3467BB', weight: 2 }
+                                },
+                                nationalQuoteVolume: {
+                                    fill: { color: '#CDD7EB' }
+                                }
+                            }
+                        },
+                        tooltip: {
+                            show: false
+                        }
+                    },
+                    
+                    
+                    rateType: Y.ZMM.RateChart.SERIES_TYPE.LOCAL,
+                    
+                },
+                showQuoteVolume: false,
+
+                // Rate data request parameters
+                loanTypeId: 1,
+                creditId: 3,
+                downPaymentId: 1,
+                timeframeId: 6,
+                regionId: 26
+            };
+
+            ZILLOW.RateViewer = new Y.ZMM.RateViewer(config);
+            ZILLOW.RateViewer.updateChart(config);
+            ZILLOW.RateViewer.hookEvents();
+            ZILLOW.RateViewer.after('nationalRateChange', function (e) {
+                var value = e.newVal;
+                Y.one('#nationalRatePercent').set('text', value ? Y.Z.Formatters.twoPointFloat(value) : '--');
+            });
+        });
+        </script><style type="text/css">
+            /*
+            YUI 3.11.0 (build d549e5c)
+            Copyright 2013 Yahoo! Inc. All rights reserved.
+            Licensed under the BSD License.
+            http://yuilibrary.com/license/
+            */
+            .yui3-widget-hidden {
+                display: none;
+            }
+            .yui3-widget-content {
+                overflow: hidden;
+            }
+            .yui3-widget-content-expanded {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+                height: 100%;
+            }
+            .yui3-widget-tmp-forcesize {
+                overflow: hidden !important;
+            }
+            #yui3-css-stamp.skin-sam-widget-base {
+                display: none;
+            }
+            /* End YUI widget-base.css */
+            body {
+                margin: 0; 
+                padding: 0; 
+                background: url(/static/images/zmm_widget_logos.gif) 0 -629px repeat-x;
+                position: relative;
+            }
+            
+            body * {
+                font-size: 8pt;
+                font-family: verdana,arial,sans-serif;
+                margin: 0;
+            }
+    
+    
+            #nationalRateInfo {
+                position: absolute;
+                top: 2px;
+                left: 168px;
+                font-size: 8pt;
+                font-weight: bold;
+                color: #555;
+                display: block;
+            }
+
+            #nationalRateInfoThin {
+                position: absolute;
+                top: 50px;
+                left: 23px;
+                padding: 0;
+                font-size: 8pt;
+                color: #555;
+                display: block;
+                font-weight: bold;
+                text-align: center;
+           }
+            
+            #nationalRate {
+                font-weight: bold; 
+                color: #3467BB;
+            }
+            
+           
+            select.loanTypesWide,
+            select.loanTypesThin {
+                height: 20px; 
+                width: 126px; 
+                margin: 0;
+                border:1px solid #8caadd;
+            } 
+            
+            select.loanTypesWide { position: absolute; top: 0; left: 20px; }
+            select.loanTypesThin {position: absolute; top: 0; left: 16px;}
+            
+            select.timespanWide,
+ 	 	        select.timespanThin {
+ 	 	        height: 20px;
+ 	 	        width: 126px;
+ 	 	        margin: 0;
+ 	 	        border:1px solid #8caadd;
+ 	 	    }
+ 	 	 
+ 	 	    select.timespanWide { position: absolute; top: 23px; left: 20px; }
+ 	 	    select.timespanThin {position: absolute; top: 23px; left: 16px;}
+
+            span.chart_buttons_wide { position: absolute; top: 25px; left: 20px; }
+            span.chart_buttons_thin { position: absolute; top: 45px; left: 16px; }
+
+            span#chart_buttons a {
+                display:block;
+                height: 13px;
+                width: 28px;
+                background-image: url(/static/images/zmm_widget_logos.gif);
+                background-repeat: no-repeat;
+                float: left; 
+                margin: 0 5px 0 0;
+            }
+            span#chart_buttons a span { display: none; }
+            
+            a#timeframe-day { background-position: 0 -114px; }
+            a#timeframe-day:hover { background-position: 0 -354px; }
+            a#timeframe-day.thistimeframe { background-position: 0 -234px; }
+            
+            a#timeframe-week { background-position: 0 -144px;  }
+            a#timeframe-week:hover { background-position: 0 -384px; }
+            a#timeframe-week.thistimeframe {  background-position: 0 -264px;  }
+            
+            a#timeframe-month { background-position: 0 -174px;  }
+            a#timeframe-month:hover { background-position: 0 -414px; }
+            a#timeframe-month.thistimeframe {  background-position: 0 -294px;  }
+            
+            a#timeframe-3month { background-position: 0 -204px;  }
+            a#timeframe-3month:hover { background-position: 0 -444px; }
+            a#timeframe-3month.thistimeframe {  background-position: 0 -324px;  }
+            
+            #quote_volume { position: absolute; top: 23px; right: 35px; }
+            #quote_volume label {       
+                padding: 0; 
+                color: #555; 
+                font-size: 7pt; 
+                position: relative; 
+                top: -2px; 
+                left: 2px; }
+            #rate_explorer_graph_wide { position: absolute; top: 40px; left: 0px; }
+            #rate_explorer_graph_thin { position: absolute; top: 62px; left: 0px;  }
+            
+            label, a { cursor: pointer; }
+            
+            div#chart.RateExplorerTall {
+                position: absolute;
+                top: 62px;
+                left: 2px;
+                width: 153px;
+                height: 125px;
+            }
+
+            div#chart.RateExplorerWide {
+                position: absolute;
+                top: 40px;
+                left: 2px;
+                width: 333px;
+                height: 135px;
+            }
+        </style><div id="rate-explorer"><div><form method="post" action="http://www.zillow.com/mortgage/RateExplorerGraphWidget,$Form.sdirect" name="Form" id="Form">
+<div style="display:none;"><input type="hidden" name="formids" value="loty,If_0">
+<input type="hidden" name="form:mortgage/RateExplorerGraphWidget" value="ZH4sIAAAAAAAAAFvzloG1nJeBgYGVgYGtPDMlPbWkoJyfgYGnJDM3NbggMS+ksiC1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaIAaA9zOTcDA0dOPtTkQoY6BhBgLOcEOiCzODwzBc06p/z8nNTEvLMKRQ1X5/x6B7QuCmZdAQPYsKLU9Mz8PM8UuGFSAAyBXBPWAAAA">
+<input type="hidden" name="reservedids" value="form:mortgage/RateExplorerGraphWidget">
+<input type="hidden" name="submitmode" value="">
+<input type="hidden" name="submitname" value="">
+<input type="hidden" name="If_0" value="F">
+</div><span class="thinMargin"><select name="loty" id="loty" class="loanTypesThin">
+<option value="1" selected="selected">30 year fixed</option>
+<option value="2">15 year fixed</option>
+<option value="3">5/1 ARM</option>
+<option value="4">20 year fixed</option>
+<option value="5">7/1 ARM</option>
+</select></span></form></div><div><form method="post" action="http://www.zillow.com/mortgage/RateExplorerGraphWidget,$Form_0.sdirect" name="Form_0" id="Form_0">
+<div style="display:none;"><input type="hidden" name="formids" value="ts">
+<input type="hidden" name="form:mortgage/RateExplorerGraphWidget" value="ZH4sIAAAAAAAAAFvzloG1nJeBgYGVgYGtPDMlPbWkoJyfgYGnJDM3NbggMS+ksiC1uIhBMCuxLFEvJzEvXc8zryQ1PbVI6NGCJd8b2y2YGBg9GVjLEnNKUyuKGAQQ6vxKc5NSi9rWTJXlnvKgm4mBoaIAaA9zOTcDA0dOPtTkQoY6BhBgLOcEOiCzODwzBc06p/z8nNTEvLMKRQ1X5/x6B7QuCmZdAQPYsKLU9Mz8PM8UuGFSAAyBXBPWAAAA">
+<input type="hidden" name="reservedids" value="form:mortgage/RateExplorerGraphWidget">
+<input type="hidden" name="submitmode" value="">
+<input type="hidden" name="submitname" value="">
+</div><select name="ts" id="ts" class="timespanThin">
+<option value="1">1 day</option>
+<option value="2">7 days</option>
+<option value="3" selected="selected">1 month</option>
+<option value="4">3 months</option>
+<option value="5">1 year</option>
+<option value="6">2 years</option>
+</select></form></div><span id="nationalRateInfoThin">Rate: <span id="nationalRate"><span id="nationalRatePercent">4.23</span>%</span></span><input value="26" id="rid" type="hidden"><input value="3" id="ch" type="hidden"><input value="1" id="lotv" type="hidden"></div><div id="chart" class="RateExplorerTall"><div id="yui_3_11_0_2_1394587221569_58" class="yui3-widget yui3-cartesianchart" role="application" style="position: absolute; height: 125px; width: 153px;"><div id="yui_3_11_0_2_1394587221569_60" class="yui3-cartesianchart-content yui3-widget-content-expanded" tabindex="0" role="img" aria-label="Chart Application" aria-describedby="yui_3_11_0_2_1394587221569_58_description" style="position: absolute;"><div id="yui_3_11_0_2_1394587221569_77" class="yui3-widget yui3-axis yui3-timeaxis" style="position: absolute; z-index: 2; height: 0px; width: 106px; left: 12px; top: 109px;"><div id="yui_3_11_0_2_1394587221569_79" class="yui3-timeaxis-content yui3-widget-content-expanded" style="width: 106px; position: relative; left: 0px; top: -4px; height: 16px;"><div style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 0px; height: 0px;"><svg:svg pointer-events="none" overflow="auto" id="yui_3_11_0_2_1394587221569_139" width="129" height="4" viewBox="0 0 129 4" style="position: absolute; top: 0px; left: 0px; overflow: auto; visibility: visible; width: 129px; height: 4px;"><svg:path id="yui_3_11_0_2_1394587221569_175" pointer-events="visiblePainted" width="0" height="0" x="0" y="0" fill="none" stroke-dasharray="none" stroke="#dad8c9" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M0, 4 L106, 4" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path><svg:path id="yui_3_11_0_2_1394587221569_181" pointer-events="visiblePainted" width="0" height="0" x="0" y="0" fill="none" stroke-dasharray="none" stroke="none" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M0, 0 L0, 4 M53, 0 L53, 4 M106, 0 L106, 4" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path></svg:svg></div><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, -12, 9);">2012</span><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, 41, 9);">2013</span><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, 94, 9);">2014</span></div></div><div id="yui_3_11_0_2_1394587221569_97" class="yui3-widget yui3-axis yui3-numericaxis" style="position: absolute; z-index: 2; height: 103.5px; width: 0px; top: 5.5px; left: 118px;"><div id="yui_3_11_0_2_1394587221569_99" class="yui3-numericaxis-content yui3-widget-content-expanded" style="height: 103.5px; position: relative; left: -4px; top: 0px; width: 35px;"><div style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 0px; height: 0px;"><svg:svg pointer-events="none" overflow="auto" id="yui_3_11_0_2_1394587221569_195" width="4" height="103.5" viewBox="0 0 4 103.5" style="position: absolute; top: 0px; left: 0px; overflow: auto; visibility: visible; width: 4px; height: 103.5px;"><svg:path id="yui_3_11_0_2_1394587221569_226" pointer-events="visiblePainted" width="0" height="0" x="0" y="0" fill="none" stroke-dasharray="none" stroke="#dad8c9" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M4, 0 L4, 103.5" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path><svg:path id="yui_3_11_0_2_1394587221569_232" pointer-events="visiblePainted" width="0" height="0" x="0" y="0" fill="none" stroke-dasharray="none" stroke="none" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M0, 103.5 L4, 103.5 M0, 51.75 L4, 51.75 M0, 0 L4, 0" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path></svg:svg></div><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, 8, 98);">3.15%</span><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, 8, 46);">3.88%</span><span class="axisLabel" style="display: block; white-space: nowrap; position: absolute; color: rgb(0, 0, 0); font-size: 85%; -webkit-transform-origin: 0% 0%; -webkit-transform: matrix(1, 0, 0, 1, 8, -5);">4.60%</span></div></div><div id="yui_3_11_0_2_1394587221569_64" class="yui3-widget yui3-graph" style="left: 12px; top: 5.5px; overflow: visible; position: absolute; height: 103.5px; width: 106px;"><div id="yui_3_11_0_2_1394587221569_66" class="yui3-graph-content yui3-widget-content-expanded"><div style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 106px; height: 103px; z-index: 0;"><svg:svg pointer-events="none" overflow="auto" id="yui_3_11_0_2_1394587221569_274" width="108" height="105.5" viewBox="-1 -1 108 105.5" style="position: absolute; top: -1px; left: -1px; overflow: auto; visibility: visible; width: 108px; height: 105.5px;"><svg:rect id="yui_3_11_0_2_1394587221569_276" pointer-events="visiblePainted" width="106" height="103.5" x="0" y="0" fill="#FFFFFF" stroke-dasharray="none" stroke="#CCCCCC" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" fill-opacity="1" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-rect yui3-svgRect"></svg:rect></svg:svg></div><div style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 106px; height: 103px; z-index: 2;"><svg:svg pointer-events="none" overflow="auto" id="yui_3_11_0_2_1394587221569_277" width="106" height="97.53034482758625" viewBox="0 0 106 97.53034482758625" style="position: absolute; top: 0px; left: 0px; overflow: auto; visibility: visible; width: 106px; height: 97.53034482758625px;"><svg:path id="yui_3_11_0_2_1394587221569_303" pointer-events="visiblePainted" width="106" height="97.53034482758625" x="0" y="0" fill="none" stroke-dasharray="none" stroke="#3467BB" stroke-linecap="butt" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M0, 59.668965517241425 L1.001168542119085, 49.44000000000003, 2.008332105448464, 45.462068965517275, 3.0154956687778434, 50.43448275862071, 4.022659232107222, 50.93172413793106, 5.029822795436601, 57.89310344827588, 6.03698635876598, 58.9586206896552, 7.044149922095359, 61.160689655172455, 8.051313485424739, 63.36275862068967, 9.058477048754117, 59.59793103448278, 10.065640612083497, 69.54275862068968, 11.072804175412875, 67.1986206896552, 12.079967738742255, 73.30758620689657, 13.087131302071633, 70.67931034482761, 14.094294865401013, 74.51517241379312, 15.101458428730393, 74.7993103448276, 16.10862199205977, 76.78827586206899, 17.11578555538915, 79.77172413793107, 18.12294911871853, 82.32896551724141, 19.13011268204791, 80.48206896551727, 20.137276245377286, 80.69517241379313, 21.144439808706665, 81.05034482758623, 22.151603372036046, 81.40551724137933, 23.158766935365424, 75.08344827586208, 24.165930498694802, 79.5586206896552, 25.173094062024184, 80.41103448275865, 26.180257625353562, 81.40551724137933, 27.18742118868294, 83.82068965517244, 28.194584752012318, 87.79862068965521, 29.2017483153417, 94.54689655172416, 30.208911878671078, 94.33379310344831, 31.216075442000456, 94.76000000000002, 32.22323900532984, 90.07172413793107, 33.230402568659215, 87.65655172413796, 34.237566131988594, 89.5034482758621, 35.25072471652827, 95.82551724137934, 36.257888279857646, 96.46482758620692, 37.265051843187024, 94.47586206896554, 38.2722154065164, 97.31724137931037, 39.27937896984578, 97.53034482758625, 40.286542533175165, 95.96758620689657, 41.29370609650454, 94.47586206896554, 42.30086965983392, 96.82000000000002, 43.3080332231633, 88.72206896551727, 44.31519678649268, 87.30137931034486, 45.322360349822056, 90.42689655172417, 46.329523913151434, 83.46551724137935, 47.33668747648081, 77.78275862068969, 48.3438510398102, 79.6296551724138, 49.351014603139575, 76.78827586206899, 50.35817816646895, 77.85379310344831, 51.36534172979833, 83.82068965517244, 52.37250529312771, 77.64068965517244, 53.3736738352468, 73.3786206896552, 54.380837398576176, 76.64620689655176, 55.388000961905554, 77.64068965517244, 56.39516452523493, 83.60758620689657, 57.40232808856431, 85.88068965517243, 58.40949165189369, 88.72206896551727, 59.41665521522307, 90.85310344827587, 60.42381877855245, 90.71103448275865, 61.43098234188183, 83.39448275862071, 62.43814590521121, 76.14896551724141, 63.445309468540586, 68.9034482758621, 64.45247303186997, 56.969655172413816, 65.45963659519934, 52.920689655172445, 66.46680015852873, 52.13931034482761, 67.4739637218581, 37.64827586206897, 68.48112728518748, 20.173793103448318, 69.48829084851685, 19.60551724137936, 70.49545441184624, 13.496551724137959, 71.50261797517562, 25.004137931034506, 72.509781538505, 24.862068965517267, 73.51694510183438, 22.304827586206954, 74.52410866516375, 24.29379310344831, 75.53127222849314, 15.201379310344848, 76.53843579182251, 6.2510344827586835, 77.5455993551519, 14.348965517241439, 78.55276291848128, 4.97241379310347, 79.55992648181065, 9.163448275862095, 80.56709004514003, 20.884137931034516, 81.5742536084694, 31.965517241379317, 82.58141717179879, 36.93793103448279, 83.58858073512816, 34.30965517241383, 84.59574429845755, 35.37517241379311, 85.60290786178693, 42.97586206896554, 86.6100714251163, 43.47310344827589, 87.62323000965598, 34.73586206896556, 88.63039357298535, 31.53931034482764, 89.63755713631474, 34.23862068965518, 90.64472069964411, 30.189655172413836, 91.6518842629735, 21.736551724137996, 92.65904782630287, 22.588965517241405, 93.66621138963225, 19.747586206896585, 94.67337495296162, 14.491034482758664, 95.68053851629101, 14.988275862068988, 96.6877020796204, 19.463448275862135, 97.69486564294976, 25.288275862069014, 98.70202920627915, 27.490344827586227, 99.70919276960852, 31.89448275862074, 100.7163563329379, 35.44620689655176, 101.72351989626728, 31.18413793103454, 102.73068345959666, 28.768965517241398, 103.73784702292605, 31.82344827586209, 104.74501058625542, 29.19517241379313, 105.74617912837451, 26.780000000000044, 106, 25.71448275862069" style="left: 0px; top: 0px; visibility: visible;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path></svg:svg></div><div style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 106px; height: 103px; z-index: 1;"><svg:svg pointer-events="none" overflow="auto" id="yui_3_11_0_2_1394587221569_304" width="106" height="103.5" viewBox="0 0 106 103.5" style="position: absolute; top: 0px; left: 0px; overflow: auto; visibility: visible; width: 106px; height: 103.5px;"><svg:path id="yui_3_11_0_2_1394587221569_306" pointer-events="visiblePainted" width="0" height="0" x="0" y="0" fill="none" stroke-dasharray="none" stroke="#f0efe9" stroke-linecap="butt" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" transform="matrix(1,0,0,1,0,0)" d=" M0, 103.5 L106, 103.5 M0, 51.75 L106, 51.75 M0, 0 L106, 0" style="left: 0px; top: 0px;" class="yui3-shape yui3-svgShape yui3-path yui3-svgPath"></svg:path></svg:svg></div></div></div><div id="yui_3_11_0_2_1394587221569_58_overlay" class="yui3-overlay" style="position: absolute; background-color: rgb(255, 255, 255); opacity: 0; z-index: 4; left: 12px; top: 5.5px; width: 106px; height: 103.5px; background-position: initial initial; background-repeat: initial initial;"></div></div><div id="yui_3_11_0_2_1394587221569_58_description" tabindex="-1" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">Use the up and down keys to navigate between series. Use the left and right keys to navigate through items in a series.</div><div id="live-region" aria-live="polite" aria-atomic="true" role="status" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);"></div></div></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
