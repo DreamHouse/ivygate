@@ -1,0 +1,199 @@
+/* You must have these css classes ***********************************/
+/*
+	look at wrapper_left.css or wrapper_right.css to style leftCol/rightCol
+	
+*/
+body{
+	background-color: #999999;
+	background-repeat: repeat-x;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;
+	margin:0;
+	padding:0;
+}
+
+#wrapper{
+	margin:0 auto;
+	width:985px; /*adjust as needed*/
+	/* required above ******************************/
+}
+
+#page{
+	width:100%;
+	background-color:white;
+	margin:10px 0 0 0;
+}
+
+#header{
+	margin:10px 10px 0 10px; /*adjust as needed*/
+	padding:1px 0 0 0; /*adjust as needed*/
+	/* required above ******************************/
+
+}
+
+#header h1{
+	color:white;
+	margin:0;
+	padding:0;	
+	font-size:3em;
+}
+
+#header #tagline{
+	color:black;
+	margin:0;
+	padding-top:15px;
+	margin:0 0 0 20px;
+	font-size:1.5em;
+}
+
+#headerInfo{
+	position:relative;
+	top:120px;
+	left:10px;
+}
+
+#header #logo{
+	float:right;
+	margin:0 20px 0 0;
+}
+
+
+#header #logo img{
+	border:0;
+}
+
+#headerTop{
+	margin:10px 0 0 0; /*adjust as needed*/
+	padding:0; /*adjust as needed*/
+	/* required above ******************************/
+	background-color:#999999;
+	height:200px;
+}
+
+#kwNav{
+	position:relative;
+	z-index:10;
+}
+
+#searchArea{
+	
+	margin:10px 0 0 0;
+	border:1px solid #ccc;
+	background-color:#b40101;
+	color:#fff;
+}
+
+#searchArea a{
+	color:#fff;
+}
+
+#searchArea h2{
+	color:#fff;
+	margin:0;
+	padding:0;
+	font-size:2em;
+	
+}
+
+#searchArea #searchBg{
+	overflow:hidden;
+	padding:0 10px;
+	
+}
+
+#searchArea #searchBox{
+	float:left;
+	width:45%;
+	margin:0 10px 0 0;
+}
+
+#searchArea #searchBox .middleBox form{
+	margin:0;
+	padding:0;
+}
+
+#searchArea #cmaBox{
+	
+}
+
+#searchArea #cmaBox img{
+	margin:0 5px 0 0;
+}
+
+#leftCol{
+	float:left;
+	display:block; /*adjust as needed*/
+	margin:10px 0 0 10px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	/* required above ******************************/
+	
+	display:block;
+	width:150px;
+}
+
+
+#rightCol{
+	float:right;
+	display:none; /*adjust as needed*/
+	margin:0px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	/* required above ******************************/
+}
+
+#bodyContainer{
+	margin:0 0 0 0px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	 /*adjust as needed*/
+	/* required above ******************************/
+
+}
+
+#mainCol{
+	padding:10px;
+	margin:0 0 0 160px;
+        width:785px;
+}
+
+#mainCol #focusArea{
+	width:inherit;
+	display:none;
+	/* required above ******************************/
+}
+
+#pageBtm{
+	
+}
+
+#footer{
+	clear:both;
+	/* required above ******************************/
+
+}
+
+#legal{
+	text-align:center;
+	font-size:10px;
+}
+
+#legal p{
+	margin-top:5px;
+	margin-bottom:0px;
+}
+
+/* add additional classes here ****************************/
+
+#contactInfo{
+text-align:center;
+	font-size:11px;
+	margin:0px;
+	margin-right:10px;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+
+#eoffice{
+	text-align:center;
+	margin-top:3px;
+	margin-bottom:3px;
+}

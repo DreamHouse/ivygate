@@ -1,0 +1,45 @@
+#searchArea{
+	
+	margin:10px 0 0 0;
+	border:1px solid #ccc;
+	background-color:#ccc;
+	color:#fff;
+}
+
+#searchArea a{
+	color:#fff;
+}
+
+#searchArea h2{
+	color:#fff;
+	margin:0 0 10px 0;
+	padding:0;
+	font-size:2em;
+	background-image:none;
+	
+}
+
+#searchArea #searchBg{
+	overflow:hidden;
+	padding:0 10px;
+	
+}
+
+#searchArea #searchBox{
+	float:left;
+	width:45%;
+	margin:0 10px 0 0;
+}
+
+#searchArea #searchBox .middleBox form{
+	margin:0;
+	padding:0;
+}
+
+#searchArea #cmaBox{
+	
+}
+
+#searchArea #cmaBox img{
+	margin:0 5px 0 0;
+}
