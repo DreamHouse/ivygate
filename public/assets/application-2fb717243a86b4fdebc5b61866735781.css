@@ -1,0 +1,604 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* You must have these css classes ***********************************/
+/*
+	look at wrapper_left.css or wrapper_right.css to style leftCol/rightCol
+	
+*/
+
+body{
+	background-color: #999999;
+	background-repeat: repeat-x;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;
+	margin:0;
+	padding:0;
+}
+
+#wrapper{
+	margin:0 auto;
+	width:985px; /*adjust as needed*/
+	/* required above ******************************/
+}
+
+#page{
+	width:100%;
+	background-color:white;
+	margin:10px 0 0 0;
+}
+
+#header{
+	margin:10px 10px 0 10px; /*adjust as needed*/
+	padding:1px 0 0 0; /*adjust as needed*/
+	/* required above ******************************/
+
+}
+
+#header h1{
+	color:white;
+	margin:0;
+	padding:0;	
+	font-size:3em;
+}
+
+#header #tagline{
+	color:black;
+	margin:0;
+	padding-top:15px;
+	margin:0 0 0 20px;
+	font-size:1.5em;
+}
+
+#headerInfo{
+	position:relative;
+	top:120px;
+	left:10px;
+}
+
+#header #logo{
+	float:right;
+	margin:0 20px 0 0;
+}
+
+
+#header #logo img{
+	border:0;
+}
+
+#headerTop{
+	margin:10px 0 0 0; /*adjust as needed*/
+	padding:0; /*adjust as needed*/
+	/* required above ******************************/
+	background-color:#999999;
+	height:200px;
+}
+
+#kwNav{
+	position:relative;
+	z-index:10;
+}
+
+#searchArea{
+	
+	margin:10px 0 0 0;
+	border:1px solid #ccc;
+	background-color:#b40101;
+	color:#fff;
+}
+
+#searchArea a{
+	color:#fff;
+}
+
+#searchArea h2{
+	color:#fff;
+	margin:0;
+	padding:0;
+	font-size:2em;
+	
+}
+
+#searchArea #searchBg{
+	overflow:hidden;
+	padding:0 10px;
+	
+}
+
+#searchArea #searchBox{
+	float:left;
+	width:45%;
+	margin:0 10px 0 0;
+}
+
+#searchArea #searchBox .middleBox form{
+	margin:0;
+	padding:0;
+}
+
+#searchArea #cmaBox{
+	
+}
+
+#searchArea #cmaBox img{
+	margin:0 5px 0 0;
+}
+
+#leftCol{
+	float:left;
+	display:block; /*adjust as needed*/
+	margin:10px 0 0 10px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	/* required above ******************************/
+	
+	display:block;
+	width:150px;
+}
+
+
+#rightCol{
+	float:right;
+	display:none; /*adjust as needed*/
+	margin:0px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	/* required above ******************************/
+}
+
+#bodyContainer{
+	margin:0 0 0 0px; /*adjust as needed*/
+	padding:0px; /*adjust as needed*/
+	 /*adjust as needed*/
+	/* required above ******************************/
+
+}
+
+#mainCol{
+	padding:10px;
+	margin:0 0 0 160px;
+        width:785px;
+}
+
+#mainCol #focusArea{
+	width:inherit;
+	display:none;
+	/* required above ******************************/
+}
+
+#pageBtm{
+	
+}
+
+#footer{
+	clear:both;
+	/* required above ******************************/
+
+}
+
+#legal{
+	text-align:center;
+	font-size:10px;
+}
+
+#legal p{
+	margin-top:5px;
+	margin-bottom:0px;
+}
+
+/* add additional classes here ****************************/
+
+#contactInfo{
+text-align:center;
+	font-size:11px;
+	margin:0px;
+	margin-right:10px;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+
+#eoffice{
+	text-align:center;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+/* You must have these css classes ***************************/
+
+
+.focusBox{
+border: 1px solid #ccc;
+margin:10px 0 15px 0;
+}
+
+.focusBox h3{
+	padding:3px;
+	margin-bottom:0px;
+	font-size:12px;
+	color: #b40101;
+	
+}
+
+.focusContent{
+	margin:0;
+	font-size:10px;
+	padding:5px;
+	color:#333333;
+	overflow:auto;
+	height:200px;
+}
+
+.focusContent p{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+/* add additional classes here *******************************/
+/* line 1, /Users/jmao/work/git/ivygate/app/assets/stylesheets/header.css.scss */
+#headerTop {
+  background-image: url(/assets/header.png);
+  background-repeat: no-repeat;
+}
+/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+
+.jcarousel-container {
+    position: relative;
+}
+
+.jcarousel-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.jcarousel-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel-list li,
+.jcarousel-item {
+    float: left;
+    list-style: none;
+    /* We set the width/height explicitly. No width/height causes infinite loops. */
+    width: 75px;
+    height: 75px;
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {
+    z-index: 3;
+    display: none;
+}
+
+.jcarousel-prev {
+    z-index: 3;
+    display: none;
+}
+/* Root = Vertical, Secondary = Vertical */
+
+
+#kwNav ul,
+#kwNav ul li,
+#kwNav ul ul {
+  margin: 0 auto;
+  border: 0 none;
+  padding: 0;
+  width: 150px; /*For KHTML*/
+  list-style: none;
+}
+
+#kwNav ul ul{
+	border:1px solid white;
+}
+
+#kwNav ul:after /*From IE 7 lack of compliance*/{
+  clear: both;
+  display: block;
+  font: 1px/0px serif;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+
+#kwNav ul li {
+  float: left; /*For IE 7 lack of compliance*/
+  display: block !important; /*For GOOD browsers*/
+  display: inline; /*For IE*/
+  position: relative;
+  
+  
+  border-bottom:1px solid #ccc;
+}
+
+/* Root Menu */
+#kwNav ul a {
+/*  border: 1px solid #FFF;
+  border-right-color: #CCC;
+  border-bottom-color: #CCC;*/
+  padding:5px 3px 5px 3px;
+  
+  display: block;
+  /*background: #EEE;*/
+  color: #000;
+  /*font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;*/
+  text-decoration: none;
+  height: auto !important;
+  height: 1%; /*For IE*/
+}
+
+/* Root Menu Hover Persistence */
+#kwNav ul a:hover,
+#kwNav ul li:hover a,
+#kwNav ul li.iehover a {
+  background: #CCC;
+  color: #FFF;
+}
+
+/* 2nd Menu */
+#kwNav ul li:hover li a,
+#kwNav ul li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 2nd Menu Hover Persistence */
+#kwNav ul li:hover li a:hover,
+#kwNav ul li:hover li:hover a,
+#kwNav ul li.iehover li a:hover,
+#kwNav ul li.iehover li.iehover a {
+  background: #CCC;
+  color: #FFF;
+}
+
+/* 3rd Menu */
+#kwNav ul li:hover li:hover li a,
+#kwNav ul li.iehover li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 3rd Menu Hover Persistence */
+#kwNav ul li:hover li:hover li a:hover,
+#kwNav ul li:hover li:hover li:hover a,
+#kwNav ul li.iehover li.iehover li a:hover,
+#kwNav ul li.iehover li.iehover li.iehover a {
+  background: #CCC;
+  color: #FFF;
+}
+
+/* 4th Menu */
+#kwNav ul li:hover li:hover li:hover li a,
+#kwNav ul li.iehover li.iehover li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 4th Menu Hover */
+#kwNav ul li:hover li:hover li:hover li a:hover,
+#kwNav ul li.iehover li.iehover li.iehover li a:hover {
+  background: #CCC;
+  color: #FFF;
+}
+
+#kwNav ul ul,
+#kwNav ul ul ul,
+#kwNav ul ul ul ul {
+  display: none;
+  position: absolute;
+  top: -1px;
+  left: 150px;
+}
+
+/* Do Not Move - Must Come Before display:block for Gecko */
+#kwNav ul li:hover ul ul,
+#kwNav ul li:hover ul ul ul,
+#kwNav ul li.iehover ul ul,
+#kwNav ul li.iehover ul ul ul {
+  display: none;
+}
+
+#kwNav ul li:hover ul,
+#kwNav ul ul li:hover ul,
+#kwNav ul ul ul li:hover ul,
+#kwNav ul li.iehover ul,
+#kwNav ul ul li.iehover ul,
+#kwNav ul ul ul li.iehover ul {
+  display: block;
+}
+
+#searchArea{
+	
+	margin:10px 0 0 0;
+	border:1px solid #ccc;
+	background-color:#ccc;
+	color:#fff;
+}
+
+#searchArea a{
+	color:#fff;
+}
+
+#searchArea h2{
+	color:#fff;
+	margin:0 0 10px 0;
+	padding:0;
+	font-size:2em;
+	background-image:none;
+	
+}
+
+#searchArea #searchBg{
+	overflow:hidden;
+	padding:0 10px;
+	
+}
+
+#searchArea #searchBox{
+	float:left;
+	width:45%;
+	margin:0 10px 0 0;
+}
+
+#searchArea #searchBox .middleBox form{
+	margin:0;
+	padding:0;
+}
+
+#searchArea #cmaBox{
+	
+}
+
+#searchArea #cmaBox img{
+	margin:0 5px 0 0;
+}
+/* -- / custom css tool / -- */
+
+body {
+      font-family:Arial;
+      font-size:14px;
+      background-color: #6b90f4;
+}
+#mainCol .content {
+      font-size:14px;
+    }
+
+#searchArea{
+	
+	margin:10px fff;
+	border:1px solid #ccc;
+	background-color: #D9DADB;
+	color:#888;
+}
+#searchArea h2{
+	color:#fff;
+	margin:0 0 10px 0;
+	padding:0;
+	font-size:1.5;
+	background-image:none;
+}
+
+
+/* Root Menu */
+#kwNav ul a {
+  border: 1px solid #FFF;
+  border-right-color: #CCC;
+  border-bottom-color: #CCC;
+  padding:5px 3px 5px 3px;
+  
+  display: block;
+  background: #efd7af;
+  color: #000;
+  /*font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;*/
+  text-decoration: none;
+  height: auto !important;
+  height: 1%; /*For IE*/
+}
+
+#kwNav ul li.open a{                       /* active top level nav */
+	color: #FFFFFF;
+	background-color:#ff8900;
+	border-left: 0px solid #c3222b;
+	border-bottom: 1px solid #2C486F;
+	font-weight: normal;
+}
+
+/* Root Menu Hover Persistence */
+#kwNav ul a:hover,
+#kwNav ul li:hover a,
+#kwNav ul li.iehover a {
+  background: #ff8900;
+  color: #fff;
+}
+
+/* 2nd Menu */
+#kwNav ul li:hover li a,
+#kwNav ul li.iehover li a {
+  background: #dbcfc6;
+  color: #000;
+} 
+
+/* 2nd Menu Hover Persistence */
+#kwNav ul li:hover li a:hover,
+#kwNav ul li:hover li:hover a,
+#kwNav ul li.iehover li a:hover,
+#kwNav ul li.iehover li.iehover a {
+  background: #824027;
+  color: #FFF;
+}
+
+#contactInfo{
+text-align:center;
+	font-size:14px;
+	margin:0px;
+	margin-right:1px;
+	margin-top:20px;
+	margin-bottom:80px;
+        color: #fff; 
+        background:#990000;
+        border:5px solid #990000;
+
+}
+
+#contactInfo a{
+        font-size:18px;
+	color:#fff;
+}
+
+.focusBox{
+border: 1px solid #990000;
+margin:10px 0 15px 0;
+}
+
+/*.focusBox h3{
+	padding:3px;
+	margin-bottom:0px;
+	font-size:16px;
+	color: #ffffff;
+	border-left-color: #FFCC00;
+	border-left-style: solid;
+	border-left-width: 5px;
+	border-bottom-color: #FFCC00;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+         background:#990000;
+	
+}
+
+.focusContent{
+	margin:0;
+	font-size:10px;
+	padding:2px;
+	color:#000000;
+	overflow:auto;
+	height:235px;
+}
+.focusContent p{
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:10px;
+
+}*/
