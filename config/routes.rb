@@ -13,6 +13,22 @@ RailsApp::Application.routes.draw do
   get 'home/ThisMonth' => 'home#ThisMonth'
   get 'home/BuyerSteps' => 'home#BuyerSteps'
   get 'home/DecideHowMuch' => 'home#DecideHowMuch'
+  get 'home/CreateWishList' => 'home#CreateWishList'
+  get 'home/Location' => 'home#Location'
+  get 'home/Option' => 'home#Option'
+  get 'home/RealtorHelp' => 'home#RealtorHelp'
+  get 'home/EightQuestions' => 'home#EightQuestions'
+  get 'home/Mortgage' => 'home#Mortgage'
+  get 'home/BuyerFormGetAction' => 'home#BuyerFormGetAction'
+  
+  get 'home/seller' => 'home#seller'
+  get 'home/EightStepsSell' => 'home#EightStepsSell'
+  get 'home/SellerQuestions' => 'home#SellerQuestions'
+  get 'home/SellerHowPrice' => 'home#SellerHowPrice'
+  get 'home/SellerGoodEtiquette' => 'home#SellerGoodEtiquette'
+  get 'home/SellerUnderstand' => 'home#SellerUnderstand'
+  get 'home/SellerIncreaseAppeal' => 'home#SellerIncreaseAppeal'
+  get 'home/SellerFormGetAction' => 'home#SellerFormGetAction'
   
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
