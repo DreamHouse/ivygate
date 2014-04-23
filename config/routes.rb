@@ -1,6 +1,19 @@
 RailsApp::Application.routes.draw do
   get 'home' => 'home#index'
   get 'home/rates' => 'home#rates'
+  
+  get 'home/search' => 'home#search'
+  get 'home/SearchMass' => 'home#SearchMass'
+  
+  get 'home/OurOffering' => 'home#OurOffering'
+  
+  get 'home/evaluation' => 'home#evaluation'
+  
+  get 'home/buyer' => 'home#buyer'
+  get 'home/ThisMonth' => 'home#ThisMonth'
+  get 'home/BuyerSteps' => 'home#BuyerSteps'
+  get 'home/DecideHowMuch' => 'home#DecideHowMuch'
+  
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
