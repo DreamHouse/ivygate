@@ -30,6 +30,19 @@ RailsApp::Application.routes.draw do
   get 'home/SellerIncreaseAppeal' => 'home#SellerIncreaseAppeal'
   get 'home/SellerFormGetAction' => 'home#SellerFormGetAction'
   
+  get 'home/SchoolMatters' => 'home#SchoolMatters'
+  get 'home/FindBestSchools' => 'home#FindBestSchools'
+  get 'home/Neighborhood' => 'home#Neighborhood'
+  
+  get 'home/AreaLinks' => 'home#AreaLinks'
+  get 'home/reloation' => 'home#reloation'
+
+  get 'home/ContactMe' => 'home#ContactMe'
+  get 'home/FreeHousingTrend' => 'home#FreeHousingTrend'
+  get 'home/testimonials' => 'home#testimonials'
+  get 'home/AboutPaul' => 'home#AboutPaul'
+  get 'home/ThePaulHuangTeam' => 'home#ThePaulHuangTeam'
+  
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

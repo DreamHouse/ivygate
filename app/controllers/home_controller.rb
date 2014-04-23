@@ -81,6 +81,46 @@ class HomeController < ApplicationController
     render layout: 'seller'
   end
 
+  def SchoolMatters
+    render layout: 'seller'
+  end
+
+  def FindBestSchools
+    render layout: 'seller'
+  end
+
+  def Neighborhood
+    render layout: 'seller'
+  end
+
+  def AreaLinks
+    render layout: 'seller'
+  end
+
+  def reloation
+    render layout: 'seller'
+  end
+
+  def ContactMe
+    render layout: 'seller'
+  end
+
+  def FreeHousingTrend
+    render layout: 'seller'
+  end
+
+  def testimonials
+    render layout: 'seller'
+  end
+
+  def AboutPaul
+    render layout: 'seller'
+  end
+
+  def ThePaulHuangTeam
+    render layout: 'seller'
+  end
+
   # Mortgage rates gadgat
   def rates
   end
