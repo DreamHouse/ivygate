@@ -1,4 +1,14 @@
 class HomeController < ApplicationController
+  def create_contact
+    ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
+      lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
+      bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
+      bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
+      unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
+      county: params['county'], area: params['area'])
+    render layout: "seller"
+  end
+
   def index
   end
 
