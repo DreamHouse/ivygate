@@ -1,11 +1,27 @@
 class HomeController < ApplicationController
   def create_contact
+    interests = ""
+    if params[:interests_free] == "1"
+      interests = 'Free consultation before listing. '
+    end
+    
+    if params[:interests_cma] == "1"
+      interests = interests + 'CMA of my home. '
+    end
+
+    if params[:interests_list] == "1"
+      interests = interests + 'Working with an Agent to list my home. '
+    end
+    
+    if params['features']
+      features = params['features'].join(',')
+    end
     ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
       lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
       bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
       bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
       unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
-      county: params['county'], area: params['area'])
+      county: params['county'], area: params['area'], interests: interests, features: features)
     render layout: "seller"
   end
 
