@@ -1,28 +1,42 @@
 class HomeController < ApplicationController
   def create_contact
-    interests = ""
-    if params[:interests_free] == "1"
-      interests = 'Free consultation before listing. '
-    end
+    challenge = params[:recaptcha_challenge_field]
+    captcha_response = params[:recaptcha_response_field].delete(' ')
+    remoteip = request.remote_ip
     
-    if params[:interests_cma] == "1"
-      interests = interests + 'CMA of my home. '
-    end
+    captcha_result = HTTParty.post("http://www.google.com/recaptcha/api/verify",
+      :body => { "privatekey" => "6LeUGPMSAAAAAF1Kllf_ys_DdpDjMXlXiCkKGnLH",
+        "challenge" => challenge, "response" => captcha_response, "remoteip" => remoteip})
+    if captcha_result.body && captcha_result.body.start_with?("true")
+      interests = ""
+      if params[:interests_free] == "1"
+        interests = 'Free consultation before listing. '
+      end
+    
+      if params[:interests_cma] == "1"
+        interests = interests + 'CMA of my home. '
+      end
 
-    if params[:interests_list] == "1"
-      interests = interests + 'Working with an Agent to list my home. '
-    end
+      if params[:interests_list] == "1"
+        interests = interests + 'Working with an Agent to list my home. '
+      end
     
-    if params['features']
-      features = params['features'].join(',')
+      if params['features']
+        features = params['features'].join(',')
+      end
+      ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
+        lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
+        bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
+        bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
+        unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
+        county: params['county'], area: params['area'], interests: interests, features: features)
+      @message = "Thank you for contacting me! I will be in touch with you shortly."
+      render layout: "seller"
+    else
+      Rails.logger.info "Captchar result: #{captcha_result.body}"
+      @message = "Please use valid CAPTCHA text in the bottom of contact form."
+      render layout: "seller"
     end
-    ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
-      lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
-      bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
-      bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
-      unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
-      county: params['county'], area: params['area'], interests: interests, features: features)
-    render layout: "seller"
   end
 
   def index
