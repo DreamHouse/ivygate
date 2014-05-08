@@ -37,6 +37,34 @@ class HomeController < ApplicationController
         interests = interests + "Information Pre-Approved for a Mortgage. "
       end
 
+      if params[:interests_list] == "1"
+        interests = interests + "Listing my home. "
+      end
+      
+      if params[:interests_find] == "1"
+        interests = interests + "Finding an agent. "
+      end
+      
+      if params[:interests_relocate] == "1"
+        interests = interests + "Relocation. "
+      end
+
+      if params[:interests_mortgage] == "1"
+        interests = interests + "Mortgage Info. "
+      end
+      
+      if params[:interests_career] == "1"
+        interests = interests + "Learning about Careers. "
+      end
+      
+      if params[:interests_purchase] == "1"
+        interests = interests + "Purchasing a property. "
+      end
+
+      if params[:interests_other] == "1"
+        interests = interests + "Other. "
+      end
+
       if params['features']
         features = params['features'].join(',')
       end
