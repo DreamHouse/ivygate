@@ -15,4 +15,4 @@ production:
   database: rails
   username: rails
   password: ja4jhjrqOo
-  socket: /tmp/mysql.sock
+#  socket: /tmp/mysql.sock

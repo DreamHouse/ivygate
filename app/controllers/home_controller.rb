@@ -21,15 +21,32 @@ class HomeController < ApplicationController
         interests = interests + 'Working with an Agent to list my home. '
       end
     
+      if params[:interests_view] == "1"
+        interests = interests + "Making an appointment to view properties. "
+      end
+
+      if params[:interests_info] == "1"
+        interests = interests + "Information about the area. "
+      end
+
+      if params[:interests_work] == "1"
+        interests = interests + "Working with an Agent. "
+      end
+
+      if params[:interests_pre] == "1"
+        interests = interests + "Information Pre-Approved for a Mortgage. "
+      end
+
       if params['features']
         features = params['features'].join(',')
       end
-      ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
+      contact = ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
         lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
         bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
         bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
         unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
-        county: params['county'], area: params['area'], interests: interests, features: features)
+        county: params['county'], area: params['area'], interests: interests, features: features, ownerOccupied: params['ownerOccupied'])
+      ContactMailer.new_contact_email(contact).deliver
       @message = "Thank you for contacting me! I will be in touch with you shortly."
       render layout: "seller"
     else

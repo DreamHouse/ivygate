@@ -4,6 +4,28 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Thanks for joining and have a great day!</p>
+    <p><%= message %> was submitted with the following information:</p>
+    <p>First Name: <%= @contact.firstName %></p>
+    <p>Last Name: <%= @contact.lastName %></p>
+    <p>Email Address: <%= @contact.email %></p>
+    <p>Phone:  <%= @contact.phoneArea %> - <%= @contact.phoneLocal %> - <%= @contact.phoneNumber %> </p>
+    <p>Best time to reach me: <%= @contact.bestTimeReach %></p>
+    <p>Contact Type: <%= @contact.contactType %> </p>
+    <p>Square Feet: <%= @contact.squareFeet %> </p>
+    <p>Bedrooms: <%= @contact.bedrooms %> </p>
+    <p>Bathrooms: <%= @contact.bathrooms %> </p>
+    <p>Owner Occupied: <%= @contact.ownerOccupied %> </p>
+    <p>House Number:  <%= @contact.address %> </p>
+    <p>Street: <%= @contact.street %> </p>
+    <p>Suite Number:  <%= @contact.unitOrSuite %> </p>
+    <p>City: <%= @contact.city %> </p>
+    <p>State/Province: <%= @contact.state %> </p>
+    <p>Postal Code: <%= @contact.postalCode %> </p>
+    <p>County:  <%= @contact.county %> </p>
+    <p>Area:  <%= @contact.area %> </p>
+    <p>Features: <%= @contact.features %> </p>
+    <p>Comments: <%= @contact.comments %> </p>
+    <p>I am interested in: <%= @contact.interests %> </p>
+    <p>Timestamp for this contact form submission in Central Standard Time: <%= Time.now %> </p>
   </body>
 </html>
