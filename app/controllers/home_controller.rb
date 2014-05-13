@@ -85,52 +85,68 @@ class HomeController < ApplicationController
   end
 
   def index
+    render layout: "seller"
   end
 
   def search
+    render layout: "seller"
   end
 
   def SearchMass
+    render layout: "seller"
   end
 
   def OurOffering
+    render layout: "seller"
   end
 
   def evaluation
+    render layout: "seller"
   end
 
   # buyer pages
   def buyer
+    render layout: "seller"
   end
 
   def ThisMonth
+    render layout: "seller"
   end
 
   def BuyerSteps
+    render layout: "seller"
   end
   
   def DecideHowMuch
+    render layout: "seller"
   end
 
   def CreateWishList
+    render layout: "seller"
   end
 
   def Location
+    render layout: "seller"
   end
 
   def Option
+    render layout: "seller"
   end
   
   def RealtorHelp
+    render layout: "seller"
   end
   
   def EightQuestions
+    render layout: "seller"
   end
   
   def Mortgage
+    render layout: "seller"
   end
 
   def BuyerFormGetAction
+    render layout: "seller"
   end
 
   # seller pages
