@@ -1,4 +1,37 @@
 class HomeController < ApplicationController
+  def create_cma
+    challenge = params[:recaptcha_challenge_field]
+    captcha_response = params[:recaptcha_response_field].delete(' ')
+    remoteip = request.remote_ip
+    
+    captcha_result = HTTParty.post("http://www.google.com/recaptcha/api/verify",
+      :body => { "privatekey" => "6LeUGPMSAAAAAF1Kllf_ys_DdpDjMXlXiCkKGnLH",
+        "challenge" => challenge, "response" => captcha_response, "remoteip" => remoteip})
+    if captcha_result.body && captcha_result.body.start_with?("true")
+      interests = ""
+      
+      if params['features']
+        features = params['features'].join(',')
+      end
+      
+      contact = ContactRequest.create!(email: params['email'], comments: params['comments'], firstName: params['firstName'],
+        lastName: params['lastName'], phoneArea: params['phoneArea'], phoneLocal: params['phoneLocal'], phoneNumber: params['phoneNumber'],
+        bestTimeReach: params['bestTimeReach'], contactType: params['contactType'], squareFeet: params['squareFeet'],
+        bedrooms: params['bedrooms'], bathrooms: params['bathrooms'], address: params['address'], street: params['street'],
+        unitOrSuite: params['unitOrSuite'], city: params['city'], state: params['state'], postalCode: params['postalCode'],
+        houseAge: params['houseAge'], propertyType: params['propertyType'],
+        interests: 'CMA', features: features)
+      ContactMailer.new_contact_email(contact).deliver
+      
+      @message = "Thank you for contacting me! I will be in touch with you shortly."
+      render "create_contact", layout: "seller"
+    else
+      Rails.logger.info "Captchar result: #{captcha_result.body}"
+      @message = "Please use valid CAPTCHA text in the bottom of contact form."
+      render "create_contact", layout: "seller"
+    end
+  end
+  
   def create_contact
     challenge = params[:recaptcha_challenge_field]
     captcha_response = params[:recaptcha_response_field].delete(' ')

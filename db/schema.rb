@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508001911) do
+ActiveRecord::Schema.define(version: 20150319015439) do
 
   create_table "contact_requests", force: true do |t|
     t.string   "email"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140508001911) do
     t.string   "interests"
     t.string   "features"
     t.string   "ownerOccupied"
+    t.string   "houseAge"
+    t.string   "propertyType"
   end
 
 end

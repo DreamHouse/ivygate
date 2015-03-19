@@ -1501,8 +1501,8 @@
 </script>
 
 
-    <form name="CMAForm" method="post" action="http://www.paulhuangrealtor.com/atj/user/CMAFormSubmitAction.do" onsubmit="return validateCMAForm(this);">      
-        
+    <form name="CMAForm" method="post" action="/home/cmas" onsubmit="return validateCMAForm(this);">      
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
             
 
 
@@ -1673,7 +1673,7 @@
         Features
     </td>
     <td align="left">
-        <select name="features" multiple="multiple" size="8"><option value="Central_Air">Central Air</option>
+        <select name="features[]" multiple="multiple" size="8"><option value="Central_Air">Central Air</option>
             <option value="Gas_Heat">Gas Heat</option>
             <option value="Swimming_Pool">Swimming Pool</option>
             <option value="Spa/Hot_Tub">Spa/Hot Tub</option>
@@ -1707,16 +1707,14 @@
     <tr>
         <td></td>
         <td>
-            
-                <script type="text/javascript" src="./FreeHomeEvaluation_files/challenge"> 
-</script><script type="text/javascript" src="./FreeHomeEvaluation_files/recaptcha.js"></script><div id="recaptcha_widget_div" style="" class=" recaptcha_nothad_incorrect_sol recaptcha_isnot_showing_audio"><div id="recaptcha_area"><table id="recaptcha_table" class="recaptchatable recaptcha_theme_red"> <tbody><tr> <td colspan="6" class="recaptcha_r1_c1"></td> </tr> <tr> <td class="recaptcha_r2_c1"></td> <td colspan="4" class="recaptcha_image_cell"><center><div id="recaptcha_image" style="width: 300px; height: 57px;"><img id="recaptcha_challenge_image" alt="reCAPTCHA challenge image" height="57" width="300" src="./FreeHomeEvaluation_files/image"></div></center></td> <td class="recaptcha_r2_c2"></td> </tr> <tr> <td rowspan="6" class="recaptcha_r3_c1"></td> <td colspan="4" class="recaptcha_r3_c2"></td> <td rowspan="6" class="recaptcha_r3_c3"></td> </tr> <tr> <td rowspan="3" class="recaptcha_r4_c1" height="49"> <div class="recaptcha_input_area"> <span id="recaptcha_challenge_field_holder" style="display: none;"><input type="hidden" name="recaptcha_challenge_field" id="recaptcha_challenge_field" value="03AHJ_VutvqTLbB9iwYOUS4-2uCXPR0QkzoyUITfwkRDwodpLNsWQBmXyOTRVgPTWwYrWERw4GueVhX1ZdbGdDc_P3K23Vcg5FRX5V7MqT_ttL_6UOfQb3jvZPPN4wW-6V_0Et2-IU9mhX7SgtT5ry5GtH1yjF9xceOn3K939F85INK3q5d83dmVSA8DB52Qs8TFs5Y4HI1HbG9PyOQLailGGdfQaBls3Bv4coR6ExZurL6HmJ1n7LIMk"></span><input name="recaptcha_response_field" id="recaptcha_response_field" type="text" autocorrect="off" autocapitalize="off" placeholder="Type the text" autocomplete="off"> <span id="recaptcha_privacy" class="recaptcha_only_if_privacy"><a href="http://www.google.com/intl/en/policies/" target="_blank">Privacy &amp; Terms</a></span> </div> </td> <td rowspan="4" class="recaptcha_r4_c2"></td> <td><a id="recaptcha_reload_btn" title="Get a new challenge"><img id="recaptcha_reload" width="25" height="17" src="./FreeHomeEvaluation_files/refresh.gif" alt="Get a new challenge"></a></td> <td rowspan="4" class="recaptcha_r4_c4"></td> </tr> <tr> <td><a id="recaptcha_switch_audio_btn" class="recaptcha_only_if_image" title="Get an audio challenge"><img id="recaptcha_switch_audio" width="25" height="16" alt="Get an audio challenge" src="./FreeHomeEvaluation_files/audio.gif"></a><a id="recaptcha_switch_img_btn" class="recaptcha_only_if_audio" title="Get a visual challenge"><img id="recaptcha_switch_img" width="25" height="16" alt="Get a visual challenge" src="./FreeHomeEvaluation_files/text.gif"></a></td> </tr> <tr> <td><a id="recaptcha_whatsthis_btn" title="Help"><img id="recaptcha_whatsthis" width="25" height="16" src="./FreeHomeEvaluation_files/help.gif" alt="Help"></a></td> </tr> <tr> <td class="recaptcha_r7_c1"></td> <td class="recaptcha_r8_c1"></td> </tr> </tbody></table> </div></div>
-<noscript>
-&lt;iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcZ8M4SAAAAAIrcVIyAwe1uXsizj-Xk1j_PjZPY" height="300" width="500" frameborder="0"&gt;&lt;/iframe&gt;&lt;br&gt;
-&lt;textarea name="recaptcha_challenge_field" rows="3" cols="40"&gt;
-&lt;/textarea&gt;
-&lt;input type="hidden" name="recaptcha_response_field" value="manual_challenge"&gt;
-</noscript><br>
-            
+                <script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6LeUGPMSAAAAAAzMV347u5YBDNkd9BCtlJcX-BPX"> 
+                </script>
+                <noscript>
+                  <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LeUGPMSAAAAAAzMV347u5YBDNkd9BCtlJcX-BPX" height="300" width="500" frameborder="0"></iframe><br>
+                  <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                  </textarea>
+                  <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+                </noscript>
         </td>
     </tr>
 <tr>
